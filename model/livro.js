@@ -12,6 +12,12 @@ const Livro = sequelize.define("Livro", {
   },
   descricao: {
     type: DataTypes.TEXT
+  },
+  imagem: {
+    type: DataTypes.STRING
+  },
+  preco: {
+    type: DataTypes.FLOAT
   }
 });
 
