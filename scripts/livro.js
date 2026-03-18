@@ -8,11 +8,13 @@ fetch(url)
   .then(res => res.json())
   .then(livro => {
     div.innerHTML = `
-      <h1>${livro.nome}</h1>
-      <p>${livro.autor}</p>
-      <p>${livro.descricao}</p>
-      <button onclick="excluir()">Excluir</button>
-    `;
+  <img src="${livro.imagem}" style="width:100%; border-radius:10px;">
+  <h1>${livro.nome}</h1>
+  <p><strong>Autor:</strong> ${livro.autor}</p>
+  <p>${livro.descricao}</p>
+  <p><strong>Preço:</strong> R$ ${livro.preco}</p>
+  <button onclick="excluir()">Excluir</button>
+`;
   });
 
 function excluir() {
