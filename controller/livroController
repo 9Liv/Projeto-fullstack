@@ -1,0 +1,27 @@
+const Livro = require("../model/livro");
+
+// GET todos
+exports.buscarTodos = async (req, res) => {
+  const livros = await Livro.findAll();
+  res.json(livros);
+};
+
+// GET por ID
+exports.buscarPorId = async (req, res) => {
+  const { id } = req.params;
+  const livro = await Livro.findByPk(id);
+  res.json(livro);
+};
+
+// POST
+exports.criar = async (req, res) => {
+  const livro = await Livro.create(req.body);
+  res.json(livro);
+};
+
+// DELETE
+exports.deletar = async (req, res) => {
+  const { id } = req.params;
+  await Livro.destroy({ where: { id } });
+  res.json({ mensagem: "Livro deletado" });
+};
